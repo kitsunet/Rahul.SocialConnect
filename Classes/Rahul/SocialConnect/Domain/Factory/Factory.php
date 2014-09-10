@@ -1,7 +1,7 @@
 <?php
 namespace Rahul\SocialConnect\Domain\Factory;
 /*                                                                        *
- * This script belongs to the TYPO3 Flow package "Rahul.SocialConnect".               *
+ * This script belongs to the TYPO3 Flow package "Imagine".               *
  *                                                                        *
  * It is free software; you can redistribute it and/or modify it under    *
  * the terms of the GNU Lesser General Public License, either version 3   *
@@ -16,27 +16,64 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
 
 
 /**
- * Facebook Factory for instantiating the right Object type
+ * Parent Base Class Factory
  * Depending on the NodeType  create function returns a specific object
  * @Flow\Scope("singleton")
  */
-class FacebookFactory extends Factory{
+class Factory{
 	
 	/**
-	 * Instantiates an object of the facebook override class based on the specified nodetype
-	 * deafaults to FbOverride
-	 * @param string
-	 * @return Rahul\SocialConnect\Domain\Override/FbOverride
+	 * @var \TYPO3\Flow\Object\ObjectManagerInterface
+	 * @Flow\Inject
 	 */
-	public function create($nodeType){
-		if($nodeType == self::HEADLINE || $nodeType == self::TEXT)
-			return new \Rahul\SocialConnect\Domain\Override\FbHeadlineOverride($this->node);
-		elseif($nodeType == self::PAGE || $nodeType == self::DOCUMENT)
-			return new \Rahul\SocialConnect\Domain\Override\FbPageOverride($this->node);
-		else
-			return new \Rahul\SocialConnect\Domain\Override\FbOverride($this->node);
-		}
+	protected $objectManager;
+	
+	/**
+	 * NodeName of Headline 
+	 */
+	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
+
+	/**
+	 * NodeName of Text 
+	 */
+	const TEXT = 'TYPO3.Neos.NodeTypes:Text';
+
+
+	/**
+	 * NodeName of Page
+	 */
+	const PAGE = 'TYPO3.Neos.NodeTypes:Page';
+
+	/**
+	 * NodeName of Document
+	 */
+	const DOCUMENT = 'TYPO3.Neos:Document';
+	
+	/**
+	 * @var NodeInterface
+	 */
+	protected $node;
+
+	/**
+	 * @param NodeInterface $node 
+	 * Constructor
+	 * @return void
+	 */
+	public function __construct($node){
+		$this->node = $node;
+	}
+
+
 }
+
+
+
+
+
+
+
+
+
 
 
 ?>

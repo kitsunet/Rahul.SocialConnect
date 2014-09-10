@@ -1,0 +1,68 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<f:section name="body">
+      
+        <div class="preview-content">
+         <div class="_5pbx userContent" data-ft="{&quot;tn&quot;:&quot;K&quot;}">
+        <p>
+         <f:if condition="{headNode}">
+    <f:then>
+    <f:format.stripTags value="{headNode.properties.title}">
+         </f:format.stripTags>
+    </f:then>
+    <f:else>
+        
+    </f:else>
+    </f:if>
+         
+         
+        </span></p>
+    </div>
+
+    <div class="_6m2 _1zpr clearfix _dcs _4_w4 _59ap mtm" data-ft=
+    "{&quot;tn&quot;:&quot;H&quot;}" data-ft="{&quot;tn&quot;:&quot;H&quot;}"
+    id="u_1f_7">
+        <div class="_6ks">
+           
+            <div class="_6l- __c_"><img alt="" class=
+            "_6m5 fbStoryAttachmentImage img" src=
+            "https://fbexternal-a.akamaihd.net/safe_image.php?d=AQBGa2RUtQjscwfy&amp;w=440&amp;h=230&amp;url=http%3A%2F%2Fwww.cms2cms.com%2Fwp-content%2Fuploads%2F2013%2F05%2Ftypo3logo.jpg&amp;cfs=1&amp;upscale"
+            style="width:440px;height:230px;"></div></a>
+        </div>
+
+        <div class="_6m3">
+            <div class="mbs _6m6">
+                <f:if condition="{node}">
+                      <f:then>
+                         <a href=>{node.properties.title}</a>
+                      </f:then>
+                      <f:else>
+                        
+                      </f:else>
+                    </f:if>
+               
+            </div>
+
+            <div class="_6ma">
+                <div class="_6m7">
+                    <f:if condition="{TextNode}">
+                          <f:then>
+                            <f:format.stripTags value="{TextNode.properties.text}">      
+                            </f:format.stripTags></span>
+                          </f:then>
+                          <f:else>
+                            
+                          </f:else>
+                        </f:if>
+                </div>
+
+                <div class="_59tj _6lz _6mb ellipsis">
+                    
+                   This is a test blog to test the SocialConnect feature for
+                    Neos
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      </div>
+</f:section>

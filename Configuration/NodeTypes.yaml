@@ -1,0 +1,129 @@
+'TYPO3.Neos.NodeTypes:Page':
+  ui:
+    inspector:
+      groups:
+        advanced:
+          label: 'Social Connect'
+  properties:
+    blogpost:
+      type: 'string'
+      defaultValue: ''
+    pageimage:
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Social Image'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    facebook:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Facebook Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    twitter:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Twitter Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    blogger:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Blogger Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+'TYPO3.Neos:Document':
+  ui:
+    inspector:
+      groups:
+        advanced:
+          label: 'Social Connect'
+  properties:
+    blogpost:
+      type: 'string'
+      defaultValue: ''
+    pageimage:
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Social Image'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    facebook:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Facebook Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    twitter:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Twitter Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    blogger:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Blogger Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+'TYPO3.Neos.NodeTypes:Headline':
+  ui:
+    inspector:
+      groups:
+        advanced:
+          label: 'Social Connect'
+  properties:
+    facebook:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Facebook Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    twitter:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Twitter Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+'TYPO3.Neos.NodeTypes:Text':
+  ui:
+    inspector:
+      groups:
+        advanced:
+          label: 'Social Connect'
+  properties:
+    facebook:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Facebook Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    twitter:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Twitter Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+                    

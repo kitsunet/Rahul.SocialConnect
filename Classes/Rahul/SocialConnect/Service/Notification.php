@@ -9,62 +9,73 @@
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
+
+
+
   use TYPO3\Flow\Annotations as Flow;
   use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
   use TYPO3\TYPO3CR\Domain\Model\Node;
-  use TYPO3\CMS\Core\Messaging\FlashMessage;
-    
+  use Rahul\SocialConnect\Logging\SocialLogger;
+  use TYPO3\Media\Domain\Model\ImageVariant;    
+  
 /**
-* Facebook slot class
-*
-* @Flow\Scope("singleton")
-*/
+ * Notification Class for SocialConnect It holds the slot and helpers which listens to the publishing process.
+ * @Flow\Scope("singleton")
+ */
 class Notification{  
 
   /**
-  *@var Rahul\SocialConnect\Domain\Factory\FacebookFactory
-  *@Flow\Inject
-  */
+   * @var Rahul\SocialConnect\Domain\Helpers\FacebookHelper
+   * @Flow\Inject
+   */
   public $fb;
+
+   /**
+   * @var Rahul\SocialConnect\Domain\Helpers\TwitterHelper
+   * @Flow\Inject
+   */
+  public $tw;
+
   /**
     * Receive Published Nodes
-    *
+    * A Slot to listen to PublishingProcess
     * @param NodeInterface $node
     * @param mixed $targetWorkspace In case this is triggered during publishing, a Workspace will be passed in
     * @return void
     */  
   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
-      $contentData =$node->getNodeData();
-      $content = $contentData->getFullLabel();
-      $fb = new Rahul\SocialConnect\Domain\Factory\FacebookFactory();
-      //$fbook = $fb->create();
-      $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
-      echo $content;
-      fwrite($fp,$content);
-      fclose($fp);
+      $face = $node->getProperty('facebook');
+      $twitter = $node->getProperty('twitter');
+      $blogger = $node->getProperty('blogger');
+      if($blogger == 1)
+      {
+        $bg = new \Rahul\SocialConnect\Domain\Helpers\BloggerHelper($node);
+        $bg->post();
+      }
+      if($face == 1)
+      { 
+        $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
+        $fb->post($node);
+      }
+      if($twitter == 1){
+        $tw = new \Rahul\SocialConnect\Domain\Helpers\TwitterHelper($node);
+        $tw->post();
+        
+      }
+
+      /*
+      $img = $node->getProperty('image');
+      $res = $img->getResource();
+      $name = 'test';
+      $pub = new \TYPO3\Flow\Resource\Publishing\ResourcePublisher();
+      $name = $pub->getPersistentResourceWebUri($res);
+      SocialLogger::twitterLog($name);
+      */
+
   }
 
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
